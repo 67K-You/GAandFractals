@@ -18,11 +18,14 @@ def nombre_random():
     import random as rd
     return rd.random()*rd.randint(1,3)
 
-def page(L):
+def mosaique(L):
     page=Tk()
     page.title("Choix des fractales")
     Titre=Label(page,text="Choississez la fractale qui vous convient le mieux",font=("Courrier",40))
     Titre.pack()
+    
+
+
     frame=Frame(page)
     left_frame=Frame(frame)
     right_frame=Frame(frame)
@@ -30,7 +33,10 @@ def page(L):
     right_frame.grid(row=0,column=1,sticky=W)
     extreme_frame=Frame(frame)
     extreme_frame.grid(row=0,column=2,sticky=E)
+    # scrollbar = Scrollbar (frame) 
+    # scrollbar.pack()
     
+    #####################################################
     c1Re=nombre_random()
     c2Re=nombre_random()
     c3Re=nombre_random()
@@ -49,7 +55,7 @@ def page(L):
     fig2=afficher_fractale.fractale(c2,-1.5,1.5,-1.5,1.5)
     fig3=afficher_fractale.fractale(c3,-1.5,1.5,-1.5,1.5)
     fig4=afficher_fractale.fractale(c4,-1.5,1.5,-1.5,1.5)
-    
+    ######################################################
     text1=Label(left_frame,text="1")
     text1.pack()
     # Button1=Button(left_frame,text="Choisir la fractale 1")
@@ -113,10 +119,13 @@ def page(L):
     Choix4=Entry(extreme_frame)
     Choix4.pack()
     
-    choix1=Choix1.get()
-    choix2=Choix2.get()
-    choix3=Choix3.get()
-    choix4=Choix4.get()
+    
+    
+
+    choix1=int(Choix1.get())
+    choix2=int(intChoix2.get())
+    choix3=int(Choix3.get())
+    choix4=int(Choix4.get())
     
     L=[]
     L.append(choix1)
@@ -124,8 +133,11 @@ def page(L):
     L.append(choix3)
     L.append(choix4)
     
+    Valider=Button(extreme_frame,text='Prochaine génération',command=lambda:mosaique(L))
+    Valider.pack()
+    
     frame.pack()
-    mainloop()
+    page.mainloop()
 
 L=[0,0,0,0]    
-page(L)
+mosaique(L)
