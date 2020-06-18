@@ -18,7 +18,7 @@ def nombre_random():
     import random as rd
     return rd.random()*rd.randint(1,3)
 
-def page():
+def page(L):
     page=Tk()
     page.title("Choix des fractales")
     Titre=Label(page,text="Choississez la fractale qui vous convient le mieux",font=("Courrier",40))
@@ -28,6 +28,8 @@ def page():
     right_frame=Frame(frame)
     left_frame.grid(row=0,column=0,sticky=N)
     right_frame.grid(row=0,column=1,sticky=W)
+    extreme_frame=Frame(frame)
+    extreme_frame.grid(row=0,column=2,sticky=E)
     
     c1Re=nombre_random()
     c2Re=nombre_random()
@@ -50,10 +52,10 @@ def page():
     
     text1=Label(left_frame,text="1")
     text1.pack()
-    Button1=Button(left_frame,text="Choisir la fractale 1")
-    Button1.pack()
-    Sup1=Button(left_frame,text="Supprimer la fractale 1")
-    Sup1.pack()
+    # Button1=Button(left_frame,text="Choisir la fractale 1")
+    # Button1.pack()
+    # Sup1=Button(left_frame,text="Supprimer la fractale 1")
+    # Sup1.pack()
     canvas1=FigureCanvasTkAgg(fig1,left_frame)
     canvas1.draw()
     canvas1.get_tk_widget().pack()
@@ -62,10 +64,10 @@ def page():
     
     text2=Label(right_frame,text="2")
     text2.pack()
-    Button2=Button(right_frame,text="Choisir la fractale 2")
-    Button2.pack()
-    Sup2=Button(right_frame,text="Supprimer la fractale 2")
-    Sup2.pack()
+    # Button2=Button(right_frame,text="Choisir la fractale 2")
+    # Button2.pack()
+    # Sup2=Button(right_frame,text="Supprimer la fractale 2")
+    # Sup2.pack()
     canvas2=FigureCanvasTkAgg(fig2,right_frame)
     canvas2.draw()
     canvas2.get_tk_widget()
@@ -73,10 +75,10 @@ def page():
 
     text3=Label(left_frame,text="3")
     text3.pack()
-    Button3=Button(left_frame,text="Choisir la fractale 3")
-    Button3.pack()
-    Sup3=Button(left_frame,text="Supprimer la fractale 3")
-    Sup3.pack()
+    # Button3=Button(left_frame,text="Choisir la fractale 3")
+    # Button3.pack()
+    # Sup3=Button(left_frame,text="Supprimer la fractale 3")
+    # Sup3.pack()
     canvas3=FigureCanvasTkAgg(fig3,left_frame)
     canvas3.draw()
     canvas3.get_tk_widget()
@@ -85,16 +87,45 @@ def page():
     
     text4=Label(right_frame,text="4")
     text4.pack()
-    Button4=Button(right_frame,text="Choisir la fractale 4")
-    Button4.pack()
-    Sup4=Button(right_frame,text="Supprimer la fractale 4")
-    Sup4.pack()
+    # Button4=Button(right_frame,text="Choisir la fractale 4")
+    # Button4.pack()
+    # Sup4=Button(right_frame,text="Supprimer la fractale 4")
+    # Sup4.pack()
     canvas4=FigureCanvasTkAgg(fig4,right_frame)
     canvas4.draw()
     canvas4.get_tk_widget()
     canvas4._tkcanvas.pack()
 
+    TextChoix1=Label(extreme_frame,text="Meilleur choix")
+    TextChoix1.pack()
+    Choix1=Entry(extreme_frame)
+    Choix1.pack()
+    TextChoix2=Label(extreme_frame,text="Choix 2")
+    TextChoix2.pack()
+    Choix2=Entry(extreme_frame)
+    Choix2.pack()
+    TextChoix3=Label(extreme_frame,text="Choix 3")
+    TextChoix3.pack()
+    Choix3=Entry(extreme_frame)
+    Choix3.pack()
+    TextChoix4=Label(extreme_frame,text="Pire choix")
+    TextChoix4.pack()
+    Choix4=Entry(extreme_frame)
+    Choix4.pack()
+    
+    choix1=Choix1.get()
+    choix2=Choix2.get()
+    choix3=Choix3.get()
+    choix4=Choix4.get()
+    
+    L=[]
+    L.append(choix1)
+    L.append(choix2)
+    L.append(choix3)
+    L.append(choix4)
     
     frame.pack()
     mainloop()
-page()
+
+L=[0,0,0,0]    
+page(L)
