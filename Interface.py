@@ -160,9 +160,9 @@ def update(L,init,variable1,extreme_frame,c1Re,c2Re,c3Re,c4Re,c1Im,c2Im,c3Im,c4I
         V4=int(variable4.get())
         print(V4)
         fc.new_values([c4Re,c4Im],L,V4)
-        #if V4==4:
-        #    L[4][0]=0.1
-        #L.sort(key=lambda sublist:sublist[0],reverse=True)
+        if V4==4:
+            L[4][0]=0.1
+        L.sort(key=lambda sublist:sublist[0],reverse=True)
     print(L)
     left_frameupdate=Frame(frame)
     right_frameupdate=Frame(frame)
